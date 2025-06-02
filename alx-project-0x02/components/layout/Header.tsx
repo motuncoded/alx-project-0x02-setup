@@ -1,11 +1,11 @@
-import { Link } from 'lucide-react'
+import Link  from "next/link";
 import React from 'react'
 
 function Header() {
   return (
     <div>
-      <Link to="/home">Home</Link>
-      <Link to="/about">About</Link>
+      <Link href="/home">Home</Link>
+      <Link href="/about">About</Link>
     </div>
   );
 }
