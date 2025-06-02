@@ -1,9 +1,13 @@
+import { Link } from 'lucide-react'
 import React from 'react'
 
 function Header() {
   return (
-    <div>Header</div>
-  )
+    <div>
+      <Link to="/home">Home</Link>
+      <Link to="/about">About</Link>
+    </div>
+  );
 }
 
 export default Header
