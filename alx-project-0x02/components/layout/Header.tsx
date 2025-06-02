@@ -1,5 +1,4 @@
-import Link  from "next/link";
-import React from 'react'
+import Link from "next/link";
 
 function Header() {
   return (
@@ -10,4 +9,4 @@ function Header() {
   );
 }
 
-export default Header
+export default Header;
