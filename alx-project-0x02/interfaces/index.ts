@@ -1,8 +1,7 @@
 
-export const index = () => {
-    return (
-        <div>
-        Hello
-        </div>
-    )
+
+export interface CardProps  {
+    title: string;
+    content: string;
+    imageUrl?: string;
 }
