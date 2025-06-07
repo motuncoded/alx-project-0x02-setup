@@ -15,3 +15,9 @@ export interface ButtonProps {
   style?: React.CSSProperties;
   className?: string;
 }
+
+export interface PostProps {
+  title: string;
+  content: string;
+  userId: number;
+}
