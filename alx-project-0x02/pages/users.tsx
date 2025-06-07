@@ -1,39 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "@/components/layout/Header";
 import UserCard from "@/components/common/UserCard";
 import { type UserProps } from "@/interfaces";
 
-function Users() {
-  const [users, setUsers] = useState<UserProps[]>([]);
-  const [loading, setLoading] = useState(true);
+interface UsersPageProps {
+  users: UserProps[];
+}
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-        setLoading(false);
-      });
-  }, []);
+const Users: React.FC<UsersPageProps> = ({ users }) => (
+  <div>
+    <Header />
+    <h1>Users Page</h1>
+    {users.length === 0 ? (
+      <p>No users found.</p>
+    ) : (
+      users.map((user) => (
+        <UserCard
+          key={user.email}
+          name={user.name}
+          email={user.email}
+          address={user.address}
+        />
+      ))
+    )}
+  </div>
+);
 
-  return (
-    <div>
-      <Header />
-      <h1>Users Page</h1>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        users.map((user) => (
-          <UserCard
-            key={user.email}
-            name={user.name}
-            email={user.email}
-            address={user.address}
-          />
-        ))
-      )}
-    </div>
-  );
+export async function getStaticProps() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users = await res.json();
+  return {
+    props: { users },
+  };
 }
 
 export default Users;
