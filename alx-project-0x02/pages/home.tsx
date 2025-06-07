@@ -1,5 +1,6 @@
 import Card from "@/components/common/Card";
 import PostModal from "@/components/common/PostModal";
+import Header from "@/components/layout/Header";
 import React, { useState } from "react";
 
 interface Post {
@@ -21,7 +22,7 @@ function Home() {
 
   return (
     <div>
-      <h1>Home</h1>
+      <Header/>
       <button onClick={() => setModalOpen(true)} style={{ marginBottom: 16 }}>
         Add Post
       </button>

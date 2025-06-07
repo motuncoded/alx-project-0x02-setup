@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "@/components/common/Button";
+import Header from "@/components/layout/Header";
 
 function About() {
   return (
     <div>
-      <h1>About Page</h1>
+      <Header />
       <Button size="small" shape="rounded-sm">
         Small Rounded-sm
       </Button>
